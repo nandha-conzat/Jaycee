@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "21375701524",
+    "firebase_url": "https://jaycee-1333.firebaseio.com",
+    "project_id": "jaycee-1333",
+    "storage_bucket": "jaycee-1333.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21375701524:android:0caf4131bcb1f2fd",
+        "android_client_info": {
+          "package_name": "rukina.jaycee.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21375701524-p5fdjg99m85vlr21f7srvcl7k14p7ht3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rukina.jaycee.android",
+            "certificate_hash": "D2AE0F6BAEFEA51807F6D71EA81A35B26D1E4421"
+          }
+        },
+        {
+          "client_id": "21375701524-fseg183902cbtn70l7csuh0fek5990c9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rukina.jaycee.android",
+            "certificate_hash": "2B6EEF2ADCF16C0C2AB34235C7429B4D970A51E1"
+          }
+        },
+        {
+          "client_id": "21375701524-2jdmlhlhjagafeficlpnr295hjbrlhc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzCqz6RgWDn4e0bJntHBAKWTnjvJNPoR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21375701524-2jdmlhlhjagafeficlpnr295hjbrlhc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
