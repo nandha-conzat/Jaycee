@@ -3,9 +3,12 @@ package rukina.jaycee.activity;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -42,15 +45,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //try {
-        //String query = URLEncoder.encode(loginType, "utf-8");
         String url = "http://budnetdesign.in/jaycee/api/login_web?username=" + Username + "&password=" + Password + "";
-        String a = "";
         mWebview.loadUrl(url);
         setContentView(mWebview);
-//        } catch (UnsupportedEncodingException ex) {
-//            ex.printStackTrace();
-//        }
 
         this.registerReceiver(this.mConnReceiver, new IntentFilter(
                 ConnectivityManager.CONNECTIVITY_ACTION));
@@ -58,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if (mWebview.canGoBack()) {
+            mWebview.goBack();
+        } else {
+            exitFromApp();
+        }
     }
 
     public BroadcastReceiver mConnReceiver = new BroadcastReceiver() {
@@ -72,6 +74,33 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void exitFromApp() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                if (!isFinishing()) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Exit")
+                            .setMessage("Do you want to exit from application ?")
+                            .setCancelable(false)
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            }).create().show();
+                }
+            }
+        });
+    }
 
     public boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));

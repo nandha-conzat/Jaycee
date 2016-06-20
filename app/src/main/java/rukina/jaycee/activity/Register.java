@@ -99,15 +99,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener,
 
         context = getApplicationContext();
 
-//        if (TextUtils.isEmpty(regId)) {
-//            regId = registerGCM();
-//            Log.d("RegisterActivity", "GCM RegId: " + regId);
-//        } else {
-//            Toast.makeText(getApplicationContext(),
-//                    "Already Registered with GCM Server!",
-//                    Toast.LENGTH_LONG).show();
-//        }
-
         //Initializing our broadcast receiver
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
 

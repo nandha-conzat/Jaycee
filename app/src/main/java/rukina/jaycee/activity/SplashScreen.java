@@ -37,8 +37,6 @@ public class SplashScreen extends AppCompatActivity {
         pUserName = PreferenceStorage.getUserName(getApplicationContext());
         pPassword = PreferenceStorage.getUserPassword(getApplicationContext());
 
-
-
         try {
             new Handler().postDelayed(new Runnable() {
                 /*
