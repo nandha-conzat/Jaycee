@@ -42,6 +42,7 @@ import rukina.jaycee.serviceinterfaces.ISignUpServiceListener;
 import rukina.jaycee.utils.CommonUtils;
 import rukina.jaycee.utils.Config;
 import rukina.jaycee.utils.FindAFunValidator;
+import rukina.jaycee.utils.PreferenceStorage;
 
 /**
  * Created by COBURG DESIGN on 08-03-2016.
@@ -171,6 +172,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener, IS
 
                 String Username = etUsername.getText().toString().trim();
                 String Password = etPassword.getText().toString().trim();
+
+                PreferenceStorage.saveUserLog(Login.this, "yes");
+                PreferenceStorage.saveUserName(Login.this, Username);
+                PreferenceStorage.saveUserPassword(Login.this, Password);
 
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

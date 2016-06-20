@@ -40,9 +40,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.Login"
+            android:name=".activity.SplashScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppFullScreenTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,10 +54,10 @@
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.Register"
+            android:name=".activity.Login"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.SplashScreen"
+            android:name=".activity.Register"
             android:screenOrientation="portrait"></activity>
 
         <!--

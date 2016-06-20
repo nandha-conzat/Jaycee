@@ -43,17 +43,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //try {
-            //String query = URLEncoder.encode(loginType, "utf-8");
-            String url = "http://budnetdesign.in/jaycee/api/login_web?username="+Username+"&password="+Password+"";
-            String a ="";
-            mWebview.loadUrl(url);
-            setContentView(mWebview);
+        //String query = URLEncoder.encode(loginType, "utf-8");
+        String url = "http://budnetdesign.in/jaycee/api/login_web?username=" + Username + "&password=" + Password + "";
+        String a = "";
+        mWebview.loadUrl(url);
+        setContentView(mWebview);
 //        } catch (UnsupportedEncodingException ex) {
 //            ex.printStackTrace();
 //        }
 
         this.registerReceiver(this.mConnReceiver, new IntentFilter(
                 ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     public BroadcastReceiver mConnReceiver = new BroadcastReceiver() {

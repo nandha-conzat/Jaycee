@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
@@ -34,28 +36,48 @@ public class GCMPushReceiverService extends GcmListenerService {
         String tickerText = data.getString("tickerText");
 
         //Displaying a notiffication with the message
-        sendNotification(message,title,subtitle,tickerText);
+        sendNotification(message, title, subtitle, tickerText);
     }
 
     //This method is generating a notification and displaying the notification
-    private void sendNotification(String message,String title,String subtitle,String tickerText) {
+    private void sendNotification(String message, String title, String subtitle, String tickerText) {
         Intent intent = new Intent(this, Register.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         int requestCode = 0;
         PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.jaysee);
-        NotificationCompat.Builder noBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.jaysee)
-                .setLargeIcon(bmp)
-                .setContentTitle(title)
-                .setSubText(subtitle)
-                .setTicker(tickerText)
-                .setContentText(message)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
 
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, noBuilder.build()); //0 = ID of notification
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            NotificationCompat.Builder noBuilder = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.jaysee)
+                    .setLargeIcon(bmp)
+                    .setContentTitle(title)
+                    .setSubText(subtitle)
+                    .setTicker(tickerText)
+                    .setContentText(message)
+                    .setAutoCancel(true)
+                    .setSound(sound)
+                    .setContentIntent(pendingIntent);
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(0, noBuilder.build()); //0 = ID of notification
+        } else {
+            // Lollipop specific setColor method goes here.
+            NotificationCompat.Builder noBuilder = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.jaysee)
+                    .setLargeIcon(bmp)
+                    .setContentTitle(title)
+                    .setSubText(subtitle)
+                    .setTicker(tickerText)
+                    .setContentText(message)
+                    .setAutoCancel(true)
+                    .setSound(sound)
+                    .setColor(Color.argb(255, 118, 118, 188))
+                    .setContentIntent(pendingIntent);
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(0, noBuilder.build()); //0 = ID of notification
+        }
     }
 }
