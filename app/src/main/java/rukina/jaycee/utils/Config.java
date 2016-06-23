@@ -4,8 +4,9 @@ public interface Config {
 
     // used to share GCM regId with application server - using php app server
 //	static final String APP_SERVER_URL = "http://budnetdesign.in/jaycee/api/login?";
-    static final String APP_SERVER_URL = "http://budnetdesign.in/jaycee/api/login?username=%s&password=%s";
-    static final String REG_USER = "http://budnetdesign.in/jaycee/api/register?name=%s&mobile_no=%s&username=%s&password=%s&gcm_registration_id=%s";
+    static final String BASE_URL = "http://budnetdesign.in/jaycee/api/";
+    static final String APP_SERVER_URL = BASE_URL+"login?username=%s&password=%s";
+    static final String REG_USER = BASE_URL+"register?name=%s&mobile_no=%s&username=%s&password=%s&gcm_registration_id=%s";
 
 
     // GCM server using java

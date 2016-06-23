@@ -19,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import rukina.jaycee.R;
+import rukina.jaycee.utils.Config;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        String url = "http://budnetdesign.in/jaycee/api/login_web?username=" + Username + "&password=" + Password + "";
+        String url = Config.BASE_URL+"login_web?username=" + Username + "&password=" + Password + "";
         mWebview.loadUrl(url);
         setContentView(mWebview);
 
