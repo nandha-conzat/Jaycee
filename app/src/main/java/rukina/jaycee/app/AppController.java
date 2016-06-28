@@ -16,12 +16,10 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import rukina.jaycee.R;
-
 
 public class AppController extends android.support.multidex.MultiDexApplication  {
 

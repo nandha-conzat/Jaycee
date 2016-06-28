@@ -10,7 +10,6 @@ import rukina.jaycee.dialogfragment.CompoundAlertDialogFragment;
 import rukina.jaycee.dialogfragment.SimpleAlertDialogFragment;
 import rukina.jaycee.interfaces.DialogClickListener;
 
-
 /**
  * Created by zahid.r on 2/3/2015.
  */

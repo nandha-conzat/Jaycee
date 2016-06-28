@@ -10,7 +10,6 @@ import rukina.jaycee.R;
 import rukina.jaycee.interfaces.DialogClickListener;
 import rukina.jaycee.utils.Config;
 
-
 public class AlertDialogForFragment extends DialogFragment {
     private int tag;
     DialogClickListener dialogActions;

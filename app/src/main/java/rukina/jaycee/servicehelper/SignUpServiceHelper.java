@@ -11,7 +11,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -96,7 +95,7 @@ public class SignUpServiceHelper {
         Log.d(TAG, "Events URL " + URL);
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 URL, (String) null,
-                new com.android.volley.Response.Listener<JSONObject>() {
+                new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
@@ -105,7 +104,7 @@ public class SignUpServiceHelper {
                             signUpServiceListener.onSignUp(response);
                         }
                     }
-                }, new com.android.volley.Response.ErrorListener() {
+                }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {

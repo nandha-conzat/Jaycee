@@ -18,7 +18,6 @@ import com.google.android.gms.gcm.GcmListenerService;
 import rukina.jaycee.R;
 import rukina.jaycee.activity.Register;
 
-
 /**
  * Created by Belal on 4/15/2016.
  */
@@ -46,11 +45,11 @@ public class GCMPushReceiverService extends GcmListenerService {
         int requestCode = 0;
         PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.jaysee);
+        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.jaycee);
 
-        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             NotificationCompat.Builder noBuilder = new NotificationCompat.Builder(this)
-                    .setSmallIcon(R.drawable.jaysee)
+                    .setSmallIcon(R.drawable.jaycee)
                     .setLargeIcon(bmp)
                     .setContentTitle(title)
                     .setSubText(subtitle)
@@ -65,7 +64,7 @@ public class GCMPushReceiverService extends GcmListenerService {
         } else {
             // Lollipop specific setColor method goes here.
             NotificationCompat.Builder noBuilder = new NotificationCompat.Builder(this)
-                    .setSmallIcon(R.drawable.jaysee)
+                    .setSmallIcon(R.drawable.jaycee)
                     .setLargeIcon(bmp)
                     .setContentTitle(title)
                     .setSubText(subtitle)

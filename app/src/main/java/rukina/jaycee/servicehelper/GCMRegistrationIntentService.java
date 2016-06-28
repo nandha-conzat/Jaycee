@@ -10,7 +10,6 @@ import com.google.android.gms.iid.InstanceID;
 
 import rukina.jaycee.R;
 
-
 /**
  * Created by Belal on 4/15/2016.
  */
